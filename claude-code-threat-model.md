@@ -7,7 +7,7 @@
 ## Scope and assumptions
 
 - In-scope paths:
-  - `2.1.88/src`
+  - `src`
 - Out-of-scope items:
   - `.git`
   - 构建产物、测试用例、未展开的外部依赖源码
@@ -247,35 +247,35 @@ flowchart TD
 
 ## Focus paths for manual security review
 
-- `2.1.88/src/tools/BashTool/BashTool.tsx`
+- `src/tools/BashTool/BashTool.tsx`
   - 本地命令执行核心入口，决定命令执行、后台任务与 sandbox 路径。
-- `2.1.88/src/utils/permissions/permissionSetup.ts`
+- `src/utils/permissions/permissionSetup.ts`
   - 自动模式危险权限规则与 shell/powershell 风险限制集中在这里。
-- `2.1.88/src/tools/FileReadTool/FileReadTool.ts`
+- `src/tools/FileReadTool/FileReadTool.ts`
   - 文件读取边界、路径处理、敏感文件暴露风险重点。
-- `2.1.88/src/tools/FileEditTool/FileEditTool.ts`
+- `src/tools/FileEditTool/FileEditTool.ts`
   - 文件修改能力和权限检查的关键入口。
-- `2.1.88/src/utils/plugins/pluginLoader.ts`
+- `src/utils/plugins/pluginLoader.ts`
   - 插件发现、加载、缓存、校验与执行链路核心。
-- `2.1.88/src/utils/plugins/marketplaceManager.ts`
+- `src/utils/plugins/marketplaceManager.ts`
   - marketplace 来源、缓存与远程拉取逻辑，属于高信任边界。
-- `2.1.88/src/services/plugins/pluginOperations.ts`
+- `src/services/plugins/pluginOperations.ts`
   - 插件安装、启停、更新与范围控制逻辑集中点。
-- `2.1.88/src/services/mcp/auth.ts`
+- `src/services/mcp/auth.ts`
   - MCP OAuth、本地回调、token 处理和外部身份接入边界。
-- `2.1.88/src/bridge/bridgeApi.ts`
+- `src/bridge/bridgeApi.ts`
   - 远程桥接与环境注册，涉及 token、环境 secret 和远程控制面。
-- `2.1.88/src/services/teamMemorySync/index.ts`
+- `src/services/teamMemorySync/index.ts`
   - 本地内容上传与 secrets scan 的交汇点。
-- `2.1.88/src/services/settingsSync/index.ts`
+- `src/services/settingsSync/index.ts`
   - 用户设置与 memory 的跨环境同步逻辑。
-- `2.1.88/src/services/remoteManagedSettings/index.ts`
+- `src/services/remoteManagedSettings/index.ts`
   - 服务端设置下发到本地执行环境，影响本地行为边界。
-- `2.1.88/src/utils/auth.ts`
+- `src/utils/auth.ts`
   - OAuth、API key、托管上下文与多种认证源选择的核心逻辑。
-- `2.1.88/src/utils/secureStorage/plainTextStorage.ts`
+- `src/utils/secureStorage/plainTextStorage.ts`
   - 明文凭据落盘风险最直接的证据点。
-- `2.1.88/src/screens/REPL.tsx`
+- `src/screens/REPL.tsx`
   - 交互主控、远程模式、权限弹窗、工具调用编排集中地。
 
 ## Quality check
